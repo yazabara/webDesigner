@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+header, nav, section, article, aside, footer {
+    display: block;
+}
+
+body {
+    font: 12px/18px Arial, Tahoma, Verdana, sans-serif;
+    height: 100%;
+    background-image: url("images/45degreee_fabric.png");
+}
+
+a {
+    color: blue;
+    outline: none;
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+p {
+    margin: 0 0 18px
+}
+
+img {
+    border: none;
+}
+
+input {
+    vertical-align: middle;
+}
+
+#wrapper {
+    min-width: 800px;
+    max-width: 1750px;
+    margin: 0 auto;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+}
+
+/* Header's
+-----------------------------------------------------------------------------*/
+.header {
+    width: 100%;
+}
+
+#header {
+    background-image: url("images/darkdenim3.png");
+    height: 100px;
+}
+
+/* Middle
+-----------------------------------------------------------------------------*/
+#middle {
+    width: 100%;
+    padding: 0 0 100px;
+    height: 1%;
+    position: relative;
+}
+
+#middle:after {
+    content: '.';
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+}
+
+#container {
+    width: 100%;
+    float: left;
+    overflow: hidden;
+}
+
+/* Footer
+-----------------------------------------------------------------------------*/
+#footer {
+    z-index: 30;
+    margin: -100px auto 0;
+    background-image: url("images/darkdenim3.png");
+    height: 100px;
+    position: relative;
+}
+
+/*
+-------------------OTHER-----------------------
+*/
+
+.kineticjs-content {
+    background: #ffffff;
+}
+
+.red_line {
+    width: 100%;
+    background: red;
+    height: 3px;
+    z-index: 100;
+    /*margin-top: 80px;*/
+}
+
+.header-wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+}
+
+#iZabara {
+    width: 170px;
+    height: 70px;
+    background-image: url("images/iZabara.png");
+    position: absolute;
+    float: left;
+    top: 10px;
+    right: 10px;
+}
+
+#painter {
+    overflow: hidden;
+}
+
+#webDesigner {
+    overflow-x: auto;
+}
+
+
+#dialog {
+    background: url('images/body_bg.jpg') repeat-x left bottom #e5e5e5;
+    /*border: 1px solid rgba(33, 33, 33, 0.6);*/
+    /*-moz-box-shadow: 0 0 2px rgba(255, 255, 255, 0.6) inset;*/
+    /*-webkit-box-shadow: 0 0 2px rgba(255, 255, 255, 0.6) inset;*/
+    /*box-shadow: 0 0 2px rgba(255, 255, 255, 0.6) inset;*/
+}
+
+.ui-dialog {
+    padding: 0;
+    border: 1px solid rgba(33, 33, 33, 0.6);
+}
+
+.ui-dialog-titlebar{
+    font: 26px/1 'Cuprum', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+    background: url('images/header_bg.jpg') repeat-x left bottom #f5f5f5;
+    padding: 18px 25px;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
+    color: #666;
+    border: 1px solid rgba(33, 33, 33, 0.6);
+}
+
+#logo {
+    position: relative;
+    height: 100%;
+    text-align: center;
+
+}
+
+#logo-header-text {
+    font-size: 24pt;
+    color: #222;
+    text-shadow: 0px 2px 3px #555;
+}
+
+p {
+    margin: 0;
+    padding: 4px;
+}

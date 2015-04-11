@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Restore B-Spline</title>
+
+    <!-- *********************************************************************
+    Embed the WacomTabletPlugin object.
+        To avoid plugin selection on page, size and position are adjusted
+        so as to "tuck it under" canvas.
+        ***************************************************************** -->
+
+    <!--[if IE]>
+
+    <object id='wtPlugin' classid='CLSID:092dfa86-5807-5a94-bf3b-5a53ba9e5308' WIDTH=1 HEIGHT=1 style="position:absolute; left:100px; top:100px">
+    </object>
+
+    <![endif]--><!--[if !IE]> <-->
+
+    <object id="wtPlugin" type="application/x-wacomtabletplugin" style="position:absolute; left:100px; top:100px" height="1" width="1">
+        <!-- <param name="onload" value="pluginLoaded" /> -->
+    </object>
+
+    <!----> <!--[endif]---->
+
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="styles/jquery-ui-1.8.19.custom.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/style.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/colorpicker.css"/>
+    <!--LIBRARIES-->
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/lybraries/jquery/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript"
+            src="scripts/com/zabara/webdesigner/lybraries/jquery/jquery-ui-1.8.19.custom.min.js"></script>
+    <!--tabslide-->
+    <script type="text/javascript"
+            src="scripts/com/zabara/webdesigner/lybraries/jquery/jquery.tabSlideOut.v1.2.js"></script>
+    <!--mousewell-->
+    <script type="text/javascript"
+            src="scripts/com/zabara/webdesigner/lybraries/jquery/jQuery_mousewheel_plugin.js"></script>
+    <!--Backbone-->
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/lybraries/Backbone/underscore.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/lybraries/Backbone/backbone.js"></script>
+    <!--Kinectic-->
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/lybraries/KineticJS/kinetic-v4.3.3.js"></script>
+    <!--logger-->
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/lybraries/log4j/log4js-mini.js"></script>
+    <!--sylvester(vector/matrix)-->
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/lybraries/Sylvester/sylvester.src.js"></script>
+    <!--flot-->
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/lybraries/flot/jquery.flot.min.js"></script>
+    <script type="text/javascript"
+            src="scripts/com/zabara/webdesigner/lybraries/flot/jquery.flot.resize.min.js"></script>
+    <!--Colorpicker-->
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/lybraries/colorpicker/colorpicker.js"></script>
+
+    <!--MY CUSTOM CODE-->
+
+    <!--some useful -->
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/models/additions.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/utils/utils.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/utils/converters.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/globalSettings.js"></script>
+
+    <!-- Model package -->
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/models/enums/ModelEvents.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/models/enums/Elements.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/models/enums/modes.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/models/paint/SplineKineticModel.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/models/splines/anySpline.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/models/splines/NURBS.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/models/SplineManager.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/models/approximation.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/models/splines/differentSplines.js"></script>
+
+    <!--Paint objects-->
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/paintObjects/splinePoint.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/paintObjects/splineBody.js"></script>
+
+    <!-- Views package -->
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/views/canvasView.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/views/assessmentView.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/views/basicFuncView.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/views/MainPanelView.js"></script>
+
+    <!--Assessment-->
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/assessment/NyutonMethod.js"></script>
+
+    <!--Interpolation-->
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/interpolation/inter.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/interpolation/inter.CanvasView.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/interpolation/inter.RestoreSpline.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/interpolation/inter.Appx.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/interpolation.js"></script>
+
+    <!--Wacom-->
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/wacom/wacom.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/wacom/pointerTypes.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/wacom/WacomManager.js"></script>
+
+
+</head>
+<body>
+<div id="webDesigner">
+
+    <div id="plugin-version">
+        <label>Plugin Version: </label>
+        <label id="version-lbl"></label>
+    </div>
+
+    <div id="error-message"> </div>
+
+    <div id="painter">
+    </div>
+</div>
+
+</body>
+</html>

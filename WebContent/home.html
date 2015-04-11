@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>webDesigner</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="styles/jquery-ui-1.8.19.custom.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/style.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/colorpicker.css"/>
+    <!--LIBRARIES-->
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/lybraries/jquery/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript"
+            src="scripts/com/zabara/webdesigner/lybraries/jquery/jquery-ui-1.8.19.custom.min.js"></script>
+    <!--tabslide-->
+    <script type="text/javascript"
+            src="scripts/com/zabara/webdesigner/lybraries/jquery/jquery.tabSlideOut.v1.2.js"></script>
+    <!--mousewell-->
+    <script type="text/javascript"
+            src="scripts/com/zabara/webdesigner/lybraries/jquery/jQuery_mousewheel_plugin.js"></script>
+    <!--Backbone-->
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/lybraries/Backbone/underscore.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/lybraries/Backbone/backbone.js"></script>
+    <!--Kinectic-->
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/lybraries/KineticJS/kinetic-v4.3.3.js"></script>
+    <!--logger-->
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/lybraries/log4j/log4js-mini.js"></script>
+    <!--sylvester(vector/matrix)-->
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/lybraries/Sylvester/sylvester.src.js"></script>
+    <!--flot-->
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/lybraries/flot/jquery.flot.min.js"></script>
+    <script type="text/javascript"
+            src="scripts/com/zabara/webdesigner/lybraries/flot/jquery.flot.resize.min.js"></script>
+    <!--Colorpicker-->
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/lybraries/colorpicker/colorpicker.js"></script>
+
+    <!--MY CUSTOM CODE-->
+
+    <!--some useful -->
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/models/additions.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/utils/utils.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/utils/converters.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/globalSettings.js"></script>
+
+    <!-- Model package -->
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/models/enums/ModelEvents.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/models/enums/Elements.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/models/enums/modes.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/models/paint/SplineKineticModel.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/models/splines/anySpline.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/models/splines/NURBS.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/models/SplineManager.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/models/approximation.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/models/splines/differentSplines.js"></script>
+
+    <!--Paint objects-->
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/paintObjects/splinePoint.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/paintObjects/splineBody.js"></script>
+
+    <!-- Views package -->
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/views/canvasView.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/views/assessmentView.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/views/basicFuncView.js"></script>
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/views/MainPanelView.js"></script>
+
+    <!--Assessment-->
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/assessment/NyutonMethod.js"></script>
+
+    <!-- MAIN -->
+    <script type="text/javascript" src="scripts/com/zabara/webdesigner/main.js"></script>
+
+</head>
+
+<body>
+<div class="header-wrapper">
+    <header id="header" class="header">
+        <div id="logo">
+            <div id="logo-img"></div>
+            <div id="logo-header-text">
+                <p>Web</p>
+
+                <p>Spline</p>
+
+                <p>Editor</p>
+            </div>
+        </div>
+
+        <div class="red_line"></div>
+        <div id="iZabara"></div>
+    </header>
+
+    <div id="dialogs">
+        <div id="dialog-function" class="dialog" title="Basic functions"
+             style="width: 625px; height: 315px; overflow: hidden">
+            <div id="basicFunctions" style="width: 600px; height: 300px; position: relative; box-sizing:border-box;">
+            </div>
+        </div>
+
+        <div id="dialog-assessment" class="dialog" title="Assessment" style="width: 625px; height: 315px; overflow: hidden">
+            <div id="assessmentFunctions" style="width: 600px; height: 300px; position: relative; box-sizing:border-box;">
+            </div>
+        </div>
+
+        <div id="dialog-settings" class="dialog" title="Assessment" style="width: 625px; height: 315px; overflow: hidden">
+            <div id="global-settings" style="width: 600px; height: 300px; position: relative; box-sizing:border-box;">
+            </div>
+        </div>
+    </div>
+
+    <!-- #header-->
+    <div id="wrapper">
+
+        <section id="middle">
+
+            <div id="container">
+
+                <div id="spline-main-panel">
+
+                    <label>canvas toush modes:</label>
+
+                    <div id="radio">
+                        <input type="radio" id="default-mode" name="radio" checked="checked"/><label for="default-mode">Choose</label>
+                        <input type="radio" id="add-spline-point-mode" name="radio"/><label for="add-spline-point-mode">Add
+                        point</label>
+                        <input type="radio" id="delete-spline-point-mode" name="radio"/><label
+                            for="delete-spline-point-mode">Delete point</label>
+                    </div>
+
+                    <label>spline fill color:</label>
+                    <input id="color-picker" type="color">
+
+                    <label>spline stroke color:</label>
+                    <input id="stroke-picker" type="color">
+
+                    <!--spline id-->
+                    <label>spline id:</label>
+                    <input type="text" id="id-spline"/>
+
+                    <!--spline degree-->
+                    <label>spline degree:</label>
+                    <input type="text" id="spline-degree"/>
+
+                    <!--opacity spline body-->
+                    <p>
+                        <label id="opacity-body-label">Spline opacity:</label>
+                        <input type="text" id="opacity-body-spline-input"
+                               style="border: 0; color: #f6931f; font-weight: bold;"/>
+                    </p>
+
+                    <div id="opacity-body-spline-slide"></div>
+
+                    <!--opacity spline circles-->
+                    <p>
+                        <label id="opacity-circles-label">Circles opacity:</label>
+                        <input type="text" id="opacity-circles-spline-input"
+                               style="border: 0; color: #f6931f; font-weight: bold;"/>
+                    </p>
+
+                    <div id="opacity-circles-spline-slide"></div>
+
+
+                    <label>circles fill color:</label>
+                    <input id="color-circles-picker" type="color">
+
+                    <label>circles stroke color:</label>
+                    <input id="stroke-circles-picker" type="color">
+
+                    <label>control line:</label>
+                    <input id="control-line-checkbox" type="checkbox" name="controlLine">
+
+                    <button id="add-spline">Add spline</button>
+                    <button id="show-basic-functions">show basic functions</button>
+                    <button id="show-assessment">show assessment</button>
+                </div>
+
+                <div id="webDesigner">
+
+                    <div id="painter">
+                    </div>
+                </div>
+
+            </div>
+            <!-- #container-->
+        </section>
+        <!-- #middle-->
+    </div>
+    <!-- #wrapper -->
+</div>
+<footer id="footer">
+    <div class="red_line"/>
+</footer>
+<!-- #footer -->
+</body>
+</html>
